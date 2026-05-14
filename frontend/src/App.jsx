@@ -8,6 +8,7 @@ import Occasion from './pages/Create/Occasion';
 import Template from './pages/Create/Template';
 import Editor from './pages/Create/Editor';
 import Success from './pages/Create/Success';
+import CardPreview from './pages/CardPreview';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/cards/:link" element={<CardPreview />} />
           
           <Route path="/create" element={<CreateLayout />}>
             <Route path="occasion" element={<Occasion />} />

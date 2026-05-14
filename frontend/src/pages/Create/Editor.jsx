@@ -168,30 +168,32 @@ export default function Editor() {
 
       case 'Scrapbook Romance':
         return (
-          <div className="w-full max-w-[500px] aspect-[4/3] bg-[#fdfbf7] rounded-sm shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] flex flex-col p-6 mx-auto relative border border-[#e8e4db] transition-all" style={{ borderRadius: '2px 10px 4px 8px' }}>
-            <h2 className="font-display-lg text-4xl text-[#945f65] text-center mb-6 mt-2 italic">
+          <div className="w-full max-w-[700px] bg-[#fdfbf7] rounded-sm shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] flex flex-col p-4 sm:p-6 mx-auto relative border border-[#e8e4db] transition-all" style={{ borderRadius: '2px 10px 4px 8px' }}>
+            <h2 className="font-display-lg text-2xl sm:text-4xl text-[#945f65] text-center mb-5 sm:mb-6 italic">
               To my dearest {cardData.recipientName || 'love'}
             </h2>
-            <div className="flex gap-6 h-full">
-              <div className="w-1/2 h-full relative flex items-center justify-center">
-                <div className="w-full aspect-[4/5] bg-white p-2 pb-8 shadow-md transform -rotate-2 relative z-10 border border-gray-100">
+            <div className="flex flex-col md:flex-row gap-5 sm:gap-6">
+              <div className="w-full md:w-1/2 flex items-center justify-center">
+                <div className="w-full max-w-xs md:max-w-none aspect-[4/5] bg-white p-2 pb-8 shadow-md transform -rotate-1 sm:-rotate-2 relative z-10 border border-gray-100">
                   <img src={cardData.img} className="w-full h-full object-cover grayscale-[20%] sepia-[10%]" alt="Polaroid" />
                   <div className="absolute bottom-2 right-2 w-6 h-6 bg-[#eae5d9] rounded-full flex items-center justify-center text-[#945f65]">
                     <span className="material-symbols-outlined text-[12px]">photo_camera</span>
                   </div>
                 </div>
               </div>
-              <div className="w-1/2 flex flex-col justify-center">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#d4a373]"></div>
-                  <span className="text-[9px] text-[#8b7355] tracking-[0.2em] uppercase font-bold">Our Story</span>
+              <div className="w-full md:w-1/2 flex flex-col justify-center">
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#d4a373]"></div>
+                    <span className="text-sm text-[#8b7355] tracking-[0.2em] uppercase font-bold py-2">Our Story</span>
+                  </div>
+                  <p className={`font-body-md text-lg sm:text-md text-[#555] leading-relaxed italic mb-4 ${cardData.isBold ? 'font-bold' : ''}`}>
+                    "{cardData.message || 'I was thinking about that afternoon in the garden, where the light hit the sage leaves just right...'}"
+                  </p>
                 </div>
-                <p className={`font-body-md text-[11px] text-[#555] leading-relaxed italic mb-4 ${cardData.isBold ? 'font-bold' : ''}`}>
-                  "{cardData.message || 'I was thinking about that afternoon in the garden, where the light hit the sage leaves just right...'}"
-                </p>
-                <div className="mt-auto">
-                  <p className="font-display-lg text-2xl text-[#7a8a76] italic mb-1">With all my love</p>
-                  <p className="text-[10px] text-[#555] uppercase tracking-wider">{cardData.senderName || 'Eleanor'}</p>
+                <div className="mt-auto text-right">
+                  <p className="font-display-lg text-xl sm:text-2xl text-[#7a8a76] italic mb-1">With all my love</p>
+                  <p className="text-sm sm:text-md text-[#555] italic uppercase tracking-wider">{cardData.senderName || 'Eleanor'}</p>
                 </div>
               </div>
             </div>
